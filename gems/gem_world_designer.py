@@ -78,6 +78,35 @@ class WorldDesigner:
                 return False, feedback
             print("Entrada inválida. Por favor entre com 's' or 'n'.")
 
+    def _run_generation_loop(self, stage_number: int, stage_name: str, initial_prompt: str) -> bool:
+        """
+        Executa o loop principal de geração, feedback e revisão para um único estágio.
+        """
+        print(f"\n--- Começando a Etapa {stage_number}: {stage_name} ---")
+        current_prompt = initial_prompt
+
+        while True:
+            generated_content = self._call_gemini_api(current_prompt)
+            print("--- Generated Content ---\n" + generated_content)
+
+            is_approved, feedback = self._get_user_feedback()
+
+            if is_approved:
+                with self.narrative_doc_path.open("a", encoding="utf-8") as f:
+                    f.write("\n\n" + generated_content)
+                print(f"Etapa {stage_number} concluída com sucesso! O conteúdo foi adicionado ao documento.")
+                return True
+
+            print("--- Revisando o prompt com o seu feedback ---")
+            current_prompt = f"""
+                PREVIOUSLY GENERATED CONTENT (REJECTED):
+                {generated_content}
+                ---
+                USER FEEDBACK FOR REVISION:
+                {feedback}
+                ---
+                ACTION: Regenerate the content for Section {stage_number} of the Narrative Design Document, considering the user's feedback."""
+
     def _run_stage_1_map(self) -> bool:
         """
         Executes the generation and revision loop for Stage 1 (Map & Overview).
@@ -85,47 +114,55 @@ class WorldDesigner:
         print("\n--- Começando a etapa 1: Gerando um overview geral e um para conceitual ---")
         concept = self.concept_brief_path.read_text()
         current_prompt = f"""
-        CONCEPT BRIEF:
-        {concept}
-        ---
-        ACTION: Execute STAGE 1: General Overview and Conceptual Map. Your output should only be the content for Section 1 of 
-        the Narrative Design Document.
-        """
+            CONCEPT BRIEF:
+            {concept}
+            ---
+            ACTION: Execute STAGE 1: General Overview and Conceptual Map. Your output should only be the content for Section 1 of 
+            the Narrative Design Document."""
         
-        while True:
-            generated_content = self._call_gemini_api(current_prompt)
-            print("--- Generated Content ---\n" + generated_content)
-            
-            is_approved, feedback = self._get_user_feedback()
-            
-            if is_approved:
-                self.narrative_doc_path.write_text(generated_content)
-                print("Estágio 1 concluído com sucesso! O conteúdo foi salvo no documento.")
-                return True
-            
-            print("--- Revisando o prompt com o seu feedback ---")
-            current_prompt = f"""
-            PREVIOUSLY GENERATED CONTENT (REJECTED):
-            {generated_content}
-            ---
-            USER FEEDBACK FOR REVISION:
-            {feedback}
-            ---
-            ACTION: Regenerate the content for Section 1 of the Narrative Design Document, considering the user's feedback.
-            """
+        return self._run_generation_loop(1, "Map & Overview", current_prompt)
     
     def _run_stage_2_rooms(self) -> bool:
         print("\n--- Começando a etapa 2: Detalhe das salas  ---")
 
-        return True
+        concept = self.concept_brief_path.read_text(encoding='utf-8')
+        approved_context = self.narrative_doc_path.read_text(encoding='utf-8')
+        initial_prompt = f"""
+            CONCEPT BRIEF:\n{concept}\n
+            NARRATIVE DOCUMENT SO FAR:\n{approved_context}\n
+            ---
+            ACTION: Now, execute STAGE 2: Room Detailing. Generate only the content for Section 2.
+        """
+
+        return self._run_generation_loop(2, "Room Detailing", initial_prompt)
 
     def _run_stage_3_creatures(self) -> bool:
-        print("\n--- (Placeholder) Stage 3: Creature & NPC Dossier ---")
-        return True
+        print("\n--- Começando a etapa 3: Detalhe das salas  ---")
+
+        concept = self.concept_brief_path.read_text(encoding='utf-8')
+        approved_context = self.narrative_doc_path.read_text(encoding='utf-8')
+        initial_prompt = f"""
+            CONCEPT BRIEF:\n{concept}\n
+            NARRATIVE DOCUMENT SO FAR:\n{approved_context}\n
+            ---
+            ACTION: Now, execute STAGE 3: Creature & NPC Dossier. Generate only the content for Section 3.
+        """
+
+        return self._run_generation_loop(3, "Creature & NPC Dossier", initial_prompt)
 
     def _run_stage_4_items(self) -> bool:
-        print("\n--- (Placeholder) Stage 4: Item & Treasure Catalog ---")
-        return True
+        print("\n--- Começando a etapa 4: Detalhe das salas  ---")
+
+        concept = self.concept_brief_path.read_text(encoding='utf-8')
+        approved_context = self.narrative_doc_path.read_text(encoding='utf-8')
+        initial_prompt = f"""
+            CONCEPT BRIEF:\n{concept}\n
+            NARRATIVE DOCUMENT SO FAR:\n{approved_context}\n
+            ---
+            ACTION: Now, execute STAGE 4: Item & Treasure Catalog. Generate only the content for Section 4.
+        """
+
+        return self._run_generation_loop(4, "Creature & NPC Dossier", initial_prompt)
 
     def execute_pipeline(self) -> bool:
         """

@@ -75,58 +75,58 @@
 
     <CONSTRAINTS>
         <ROOM_CONSTRAINTS>
-            * [cite_start]**Valid Exit Directions:** As únicas saídas possíveis entre as salas são **Norte, Sul, Leste, Oeste, Cima e Baixo**. Nenhuma outra variação é permitida.
+            * **Valid Exit Directions:** As únicas saídas possíveis entre as salas são **Norte, Sul, Leste, Oeste, Cima e Baixo**. Nenhuma outra variação é permitida.
             * **Room Properties (Flags):** Você pode descrever salas com os seguintes conceitos narrativos:
-                - [cite_start]`DARK`: Uma sala escura. 
-                - [cite_start]`DEATH`: Uma armadilha mortal (o personagem "morre" sem perder experiência). 
-                - [cite_start]`NOMOB`: Um santuário onde monstros não podem entrar. 
-                - [cite_start]`INDOORS`: Um ambiente interno. 
-                - [cite_start]`PEACEFUL`: Um local pacífico onde violência não é permitida. 
-                - [cite_start]`NOMAGIC`: Um local onde magias falham. 
-                - [cite_start]`TUNNEL`: Uma sala que só permite uma pessoa por vez. 
-                - [cite_start]`PRIVATE`: Uma sala que só permite duas pessoas por vez. 
-            * [cite_start]**Terrain Types (Sectors):** O terreno de uma sala deve ser conceitualmente um dos seguintes: `INSIDE`, `CITY`, `FIELD`, `FOREST`, `HILLS`, `MOUNTAIN`, `WATER_SWIM` (água nadável), `WATER_NOSWIM` (água que requer um barco), ou `UNDERWATER`.
+                - `DARK`: Uma sala escura. 
+                - `DEATH`: Uma armadilha mortal (o personagem "morre" sem perder experiência). 
+                - `NOMOB`: Um santuário onde monstros não podem entrar. 
+                - `INDOORS`: Um ambiente interno. 
+                - `PEACEFUL`: Um local pacífico onde violência não é permitida. 
+                - `NOMAGIC`: Um local onde magias falham. 
+                - `TUNNEL`: Uma sala que só permite uma pessoa por vez. 
+                - `PRIVATE`: Uma sala que só permite duas pessoas por vez. 
+            * **Terrain Types (Sectors):** O terreno de uma sala deve ser conceitualmente um dos seguintes: `INSIDE`, `CITY`, `FIELD`, `FOREST`, `HILLS`, `MOUNTAIN`, `WATER_SWIM` (água nadável), `WATER_NOSWIM` (água que requer um barco), ou `UNDERWATER`.
             * **Door Types:** Você pode descrever três tipos de passagens:
-                1. [cite_start]Uma passagem aberta, sem porta. 
-                2. [cite_start]Uma porta normal, que pode ser aberta, fechada e trancada. 
-                3. [cite_start]Uma porta à prova de arrombamento (pickproof), que, se trancada, só pode ser aberta com a chave correta.
-                - [cite_start]Se você projetar uma porta trancada, deve também projetar a existência de sua chave.
+                1. Uma passagem aberta, sem porta. 
+                2. Uma porta normal, que pode ser aberta, fechada e trancada. 
+                3. Uma porta à prova de arrombamento (pickproof), que, se trancada, só pode ser aberta com a chave correta.
+                - Se você projetar uma porta trancada, deve também projetar a existência de sua chave.
         </ROOM_CONSTRAINTS>
 
         <MOBILE_CONSTRAINTS>
             * **Behavior (Action Flags):** Você pode descrever criaturas com os seguintes comportamentos narrativos:
-                - [cite_start]`SENTINEL`: Fica parada, sem vagar pelo mapa. 
-                - [cite_start]`SCAVENGER`: Pega objetos de valor que encontra pelo chão. 
-                - [cite_start]`AGGRESSIVE`: Ataca todos os jogadores que entram na sala. 
-                - [cite_start]`STAY_ZONE`: Não sai da sua própria zona. 
-                - [cite_start]`WIMPY`: Foge do combate quando está com a vida baixa. 
-                - [cite_start]`HELPER`: Ajuda outras criaturas da sala que estiverem em combate. 
-                - [cite_start]`NOCHARM`: Não pode ser encantada por jogadores. 
+                - `SENTINEL`: Fica parada, sem vagar pelo mapa. 
+                - `SCAVENGER`: Pega objetos de valor que encontra pelo chão. 
+                - `AGGRESSIVE`: Ataca todos os jogadores que entram na sala. 
+                - `STAY_ZONE`: Não sai da sua própria zona. 
+                - `WIMPY`: Foge do combate quando está com a vida baixa. 
+                - `HELPER`: Ajuda outras criaturas da sala que estiverem em combate. 
+                - `NOCHARM`: Não pode ser encantada por jogadores. 
             * **Inherent Abilities (Affection Flags):** As criaturas podem ter as seguintes características inatas:
-                - [cite_start]`BLIND`: Cega. 
-                - [cite_start]`INVISIBLE`: Invisível. 
-                - [cite_start]`DETECT_INVIS`: Consegue ver o que é invisível. 
-                - [cite_start]`INFRAVISION`: Consegue ver no escuro. 
-                - [cite_start]`SANCTUARY`: Protegida por uma aura mágica que reduz o dano sofrido pela metade. 
-                - [cite_start]`SNEAK`: Move-se silenciosamente. 
-                - [cite_start]`HIDE`: Permanece escondida na sala. 
-            * [cite_start]**Initial Position:** Uma criatura, quando carregada, deve estar em uma das seguintes posições: `SLEEPING`, `RESTING`, `SITTING`, ou `STANDING`. [cite: 417, 422, 423, 424, 426]
+                - `BLIND`: Cega. 
+                - `INVISIBLE`: Invisível. 
+                - `DETECT_INVIS`: Consegue ver o que é invisível. 
+                - `INFRAVISION`: Consegue ver no escuro. 
+                - `SANCTUARY`: Protegida por uma aura mágica que reduz o dano sofrido pela metade. 
+                - `SNEAK`: Move-se silenciosamente. 
+                - `HIDE`: Permanece escondida na sala. 
+            * **Initial Position:** Uma criatura, quando carregada, deve estar em uma das seguintes posições: `SLEEPING`, `RESTING`, `SITTING`, ou `STANDING`. [cite: 417, 422, 423, 424, 426]
         </MOBILE_CONSTRAINTS>
 
         <OBJECT_CONSTRAINTS>
-            * [cite_start]**Object Types:** Todo item que você criar deve se encaixar em uma das seguintes categorias conceituais: `LIGHT`, `SCROLL`, `WAND`, `STAFF`, `WEAPON`, `TREASURE`, `ARMOR`, `POTION`, `CONTAINER`, `NOTE`, `DRINKCON`, `KEY`, `FOOD`, `MONEY`, `BOAT`, ou `FOUNTAIN`. [cite: 559, 561] Você não pode inventar um novo tipo de item.
+            * **Object Types:** Todo item que você criar deve se encaixar em uma das seguintes categorias conceituais: `LIGHT`, `SCROLL`, `WAND`, `STAFF`, `WEAPON`, `TREASURE`, `ARMOR`, `POTION`, `CONTAINER`, `NOTE`, `DRINKCON`, `KEY`, `FOOD`, `MONEY`, `BOAT`, ou `FOUNTAIN`. [cite: 559, 561] Você não pode inventar um novo tipo de item.
             * **Object Properties (Effect Flags):** Os itens podem ter as seguintes propriedades narrativas:
-                - [cite_start]`GLOW`: Brilha. 
-                - [cite_start]`HUM`: Emite um zumbido. 
-                - [cite_start]`NORENT`: Não pode ser alugado. 
-                - [cite_start]`NODONATE`: Não pode ser doado. 
-                - [cite_start]`NOINVIS`: Não pode ficar invisível. 
-                - [cite_start]`INVISIBLE`: É invisível. 
-                - [cite_start]`MAGIC`: Tem uma aura mágica. 
-                - [cite_start]`NODROP`: É amaldiçoado e não pode ser largado. 
-                - [cite_start]`BLESS`: É abençoado. 
-                - [cite_start]`NOSELL`: Não pode ser vendido em lojas. 
-            * [cite_start]**Wearable Locations:** Um item, para ser vestido, só pode ser equipado nos seguintes locais: `FINGER`, `NECK`, `BODY`, `HEAD`, `LEGS`, `FEET`, `HANDS`, `ARMS`, `SHIELD`, `ABOUT` (sobre o corpo), `WAIST`, `WRIST`, `WIELD` (empunhado) ou `HOLD` (segurado). [cite: 570]
+                - `GLOW`: Brilha. 
+                - `HUM`: Emite um zumbido. 
+                - `NORENT`: Não pode ser alugado. 
+                - `NODONATE`: Não pode ser doado. 
+                - `NOINVIS`: Não pode ficar invisível. 
+                - `INVISIBLE`: É invisível. 
+                - `MAGIC`: Tem uma aura mágica. 
+                - `NODROP`: É amaldiçoado e não pode ser largado. 
+                - `BLESS`: É abençoado. 
+                - `NOSELL`: Não pode ser vendido em lojas. 
+            * **Wearable Locations:** Um item, para ser vestido, só pode ser equipado nos seguintes locais: `FINGER`, `NECK`, `BODY`, `HEAD`, `LEGS`, `FEET`, `HANDS`, `ARMS`, `SHIELD`, `ABOUT` (sobre o corpo), `WAIST`, `WRIST`, `WIELD` (empunhado) ou `HOLD` (segurado). [cite: 570]
         </OBJECT_CONSTRAINTS>
 
     </CONSTRAINTS>
