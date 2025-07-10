@@ -20,8 +20,7 @@
 
     <REFERENCE_KNOWLEDGE>
         To perform your task, you must rely on two external knowledge sources provided by the orchestrating script:
-        1.  **`salas_modelo` (Practical Examples):** When a narrative description is vague about an entity's power (e.g., "a strong warrior"), you MUST use these examples to infer balanced, level-appropriate numerical stats.
-        2.  **`building.pdf` (Technical Manual):** You must use this manual to understand the meaning of CircleMUD's flags and parameters, allowing you to correctly translate narrative descriptions (e.g., "he never leaves his post" translates to the `SENTINEL` flag).
+        1.  **`building.pdf` (Technical Manual):** You must use this manual to understand the meaning of CircleMUD's flags and parameters, allowing you to correctly translate narrative descriptions (e.g., "he never leaves his post" translates to the `SENTINEL` flag).
     </REFERENCE_KNOWLEDGE>
 
     <WORKFLOW>
