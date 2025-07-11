@@ -51,10 +51,9 @@ class CodeBuilder:
                 config=self.config
             )
 
-            print("[--- Chamada completa Complete ---]\n")
+            print("[--- Chamada completa ---]\n")
             return response.text or "Erro: A resposta da API estava vazia."
         except Exception as e:
-            # Handle potential API errors gracefully
             print(f"Um erro ocorreu na chamada da API: {e}")
             return f"Erro: Nao foi prossivel gerar. Detalhes: {e}"
 

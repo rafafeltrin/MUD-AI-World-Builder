@@ -53,7 +53,7 @@ class PseudocodeBuilder:
                     config=self.config
                 )
 
-                print("[--- Chamada completa Complete ---]\n")
+                print("[--- Chamada completa ---]\n")
                 return response.text or "Erro: A resposta da API estava vazia."
             except Exception as e:
                 # Handle potential API errors gracefully
@@ -64,7 +64,7 @@ class PseudocodeBuilder:
             """
             Generates pseudocode based
             """
-            print("\n[--- Gerando Pseudocode... ---]")
+            print("\n[--- Gerando Pseudocódigo... ---]")
             try:
                 prompt = "Por favor, gere pseudocode para o seguinte design narrativo:\n\n"
                 prompt += self.narrative_doc_path.read_text(encoding='utf-8')

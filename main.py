@@ -39,7 +39,7 @@ def main():
     workspace_path = setup_workspace(zone_name)
     if not workspace_path:
         return 
-    print(f"\n🗂️ Workspace criado: {workspace_path}"
+    print(f"\nWorkspace criado: {workspace_path}"
           )
     concept_brief_path = workspace_path / "0_concept_brief.md"
 
@@ -51,45 +51,42 @@ def main():
     
     input("Pressione Enter quando o arquivo estiver pronto para continuar...")
 
-    print("\n🚀 Começando etapa 2: design de mundos..")
-    """
+    print("\nComeçando etapa 2: design de mundos..")
+
+    
     try:
         # The 'workspace_path' is passed to the designer so it knows where to read/write files
         world_designer = WorldDesigner(workspace_path)
         success = world_designer.execute_pipeline()
 
         if success:
-            print("\n🎉 O documento de design narrativo está completo!")
+            print("\nO documento de design narrativo está completo!\n")
         else:
-            print("\n🛑 Pipeline foi interrompida pelo usuário durante a criação do documento de desing narrativo.")
+            print("\n Pipeline foi interrompida pelo usuário durante a criação do documento de desing narrativo.")
 
     except Exception as e:
         print(f"\nUm erro inesperado ocorreu: {e}")
     
-    """
-    """
+    
     try:
-        # The 'workspace_path' is passed to the designer so it knows where to read/write files
         pseudocode_Builder = PseudocodeBuilder(workspace_path)
         success = pseudocode_Builder.generate_pseudocode()
 
         if success:
-            print("\n🎉 O documento de design narrativo está completo!")
+            print("\nO pseudocódigo está completo!\n")
         else:
-            print("\n🛑 Pipeline foi interrompida pelo usuário durante a criação do documento de desing narrativo.")
-
+            print("\n Ocorreu um erro durante a geração do pseudocódigo.")
     except Exception as e:
         print(f"\nUm erro inesperado ocorreu: {e}")
-    """
+    
     try:
-        # The 'workspace_path' is passed to the designer so it knows where to read/write files
         pseudocode_Builder = CodeBuilder(workspace_path)
         success = pseudocode_Builder.generate_finalcode()
 
         if success:
-            print("\n🎉 O documento de design narrativo está completo!")
+            print("\nO código final está completo!\n")
         else:
-            print("\n🛑 Pipeline foi interrompida pelo usuário durante a criação do documento de desing narrativo.")
+            print("\n Ocorreu um erro durante a geração do código final.")
 
     except Exception as e:
         print(f"\nUm erro inesperado ocorreu: {e}")
